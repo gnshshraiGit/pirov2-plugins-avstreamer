@@ -23,7 +23,7 @@ var avstreamerConf = {
   ffserverVideoOut: 'http://localhost:8090/webcamvid.mjpeg',
   recordingTime: 60, // time to record in seconds 
   recordingFormat: 'matroska',
-  recordingFolder: '/home/pi/pirov2/recordings', // where the recorded videos will be saved, absolute path
+  recordingFolder: '/home/pi/pirov2/recordings', // where the recorded videos will saved, with reference to current directory need to manually create it
   recordingHoldTime: 10, // to keep the recordings in above folder in minutes
   //EventNames
   startRecordEvent: 'record',
@@ -34,7 +34,7 @@ var avstreamerConf = {
 module.exports = function(config){
     config = config || {};
     //Module initialization
-    //Merge default settings with supplied settings
+    //Merge default settings with supplied settingscd 
     var cfg = mergeJSON.merge(avstreamerConf, config);
     var isStreaming = false;
     var isRecording = false;
@@ -71,7 +71,7 @@ module.exports = function(config){
       }
       //Recording folder cleanup
       console.log('File Cleanup in progress ...');
-      spawn("find "+ __dirname + cfg.recordingFolder +"  -type f -mmin +" + cfg.recordingHoldTime +" -exec rm -rf {} +", {stdio: 'inherit', shell: true});
+      spawn("find "+ cfg.recordingFolder +"  -type f -mmin +" + cfg.recordingHoldTime +" -exec rm -rf {} +", {stdio: 'inherit', shell: true});
       console.log('File Cleanup done.');
     }, 10000);
     //Module initialization
@@ -110,7 +110,7 @@ module.exports = function(config){
                                       '-t', cfg.recordingTime,
                                       '-y', currRecordingSockId+".mkv"
                                     ].join(" ");
-          ffMpegRecordingHandl = spawn('ffmpeg ' + ffMpegRecordingParams, {stdio: 'inherit', shell: true, cwd: __dirname + cfg.recordingFolder});
+          ffMpegRecordingHandl = spawn('ffmpeg ' + ffMpegRecordingParams, {stdio: 'inherit', shell: true, cwd: cfg.recordingFolder});
           ffMpegRecordingHandl.on('exit', function (code) {
             if (code === 0){
               console.log('Recording Completed for ' + currRecordingSockId);
@@ -134,4 +134,3 @@ module.exports = function(config){
     }
     return streamingFunc
 };
-

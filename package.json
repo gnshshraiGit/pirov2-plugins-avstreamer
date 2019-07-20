@@ -1,6 +1,6 @@
 {
   "name": "pirov2-plugins-avstreamer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Audio video stremer for pirov2 needs pi camera and a mic",
   "main": "avstreamer.js",
   "scripts": {

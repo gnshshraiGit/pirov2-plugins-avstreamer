@@ -1,0 +1,27 @@
+{
+  "name": "pirov2-plugins-avstreamer",
+  "version": "1.0.0",
+  "description": "Audio video stremer for pirov2 needs pi camera and a mic",
+  "main": "avstreamer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnshshraiGit/pirov2-plugins-avstreamer.git"
+  },
+  "keywords": [
+    "pirov2",
+    "avstreamer"
+  ],
+  "author": "Ganesh Shankar Rai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gnshshraiGit/pirov2-plugins-avstreamer/issues"
+  },
+  "homepage": "https://github.com/gnshshraiGit/pirov2-plugins-avstreamer#readme",
+  "dependencies": {
+    "tree-kill": "^1.2.1",
+    "merge-json": "0.1.0-b.3"
+  }
+}

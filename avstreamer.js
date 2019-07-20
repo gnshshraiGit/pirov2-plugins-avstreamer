@@ -23,7 +23,7 @@ var avstreamerConf = {
   ffserverVideoOut: 'http://localhost:8090/webcamvid.mjpeg',
   recordingTime: 60, // time to record in seconds 
   recordingFormat: 'matroska',
-  recordingFolder: '/recordings', // where the recorded videos will saved, with reference to current directory need to manually create it
+  recordingFolder: '/home/pi/pirov2/recordings', // where the recorded videos will be saved, absolute path
   recordingHoldTime: 10, // to keep the recordings in above folder in minutes
   //EventNames
   startRecordEvent: 'record',
